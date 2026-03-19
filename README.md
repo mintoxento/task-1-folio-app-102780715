@@ -1,4 +1,4 @@
-# task1-app
+# folio
 
 An Electron application with React and TypeScript
 
