@@ -72,6 +72,10 @@ export default function Notes() {
         }}
       />
 
+      <div style={{ margin: '0.35rem 0', textAlign: 'center', fontSize: '0.78rem', letterSpacing: '0.06em', color: '#814a17', background: '#fff7e4', border: '1px solid #ffc107', padding: '0.4rem' }}>
+        New in v1.1.0: built-in auto-update check and installer flow.
+      </div>
+
       <Masthead notes={notes} />
 
       <div className="rule-triple">
