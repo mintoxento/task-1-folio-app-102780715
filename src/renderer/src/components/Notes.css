@@ -355,6 +355,13 @@
   gap: 1.2rem;
 }
 
+/* ── Notes Container ── */
+.notes-container {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+}
+
 /* ── Note Card ── */
 .note-card {
   border: 1px solid var(--border);

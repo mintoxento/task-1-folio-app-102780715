@@ -93,15 +93,17 @@ export default function Notes() {
 
       {composerOpen && <Composer onPublish={handlePublish} />}
 
-      <NotesGrid
-        notes={filtered}
-        activeId={activeId}
-        onActivate={handleActivate}
-        onDelete={handleDelete}
-        onPin={handlePin}
-        onUnpin={handleUnpin}
-        onEdit={handleEdit}
-      />
+      <div className="notes-container">
+        <NotesGrid
+          notes={filtered}
+          activeId={activeId}
+          onActivate={handleActivate}
+          onDelete={handleDelete}
+          onPin={handlePin}
+          onUnpin={handleUnpin}
+          onEdit={handleEdit}
+        />
+      </div>
 
       <footer className="folio-footer">
         <span>FOLIO</span>

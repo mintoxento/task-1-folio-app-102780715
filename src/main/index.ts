@@ -10,7 +10,10 @@ function registerAutoUpdater(mainWindow: BrowserWindow): void {
   autoUpdater.on('error', (error) => {
     const errMessage = error == null ? 'Unknown error' : `${error.name}: ${error.message}`
     console.error('Auto updater error:', errMessage)
-    dialog.showErrorBox('Update Error', errMessage)
+    // Only show error dialog for unexpected errors, not for missing latest.yml during development
+    if (!errMessage.includes('latest.yml') && !errMessage.includes('404')) {
+      dialog.showErrorBox('Update Error', errMessage)
+    }
   })
 
   autoUpdater.on('update-available', (info) => {
@@ -106,10 +109,12 @@ app.whenReady().then(() => {
 
   createWindow()
 
-  // Start auto-update check on app start.
-  autoUpdater.checkForUpdates().catch((err) => {
-    console.warn('Error checking for updates:', err)
-  })
+  // Start auto-update check on app start (only in production builds)
+  if (!is.dev) {
+    autoUpdater.checkForUpdates().catch((err) => {
+      console.warn('Error checking for updates:', err)
+    })
+  }
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
