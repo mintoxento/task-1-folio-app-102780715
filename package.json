@@ -25,7 +25,8 @@
     ],
     "win": {
       "target": ["nsis"],
-      "icon": "resources/icons/win/icon.ico"
+      "icon": "resources/icons/win/icon.ico",
+      "artifactName": "${name}-setup-${version}.${ext}"
     },
     "mac": {
       "target": ["dmg"]
