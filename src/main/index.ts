@@ -107,6 +107,9 @@ app.whenReady().then(() => {
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
 
+  // IPC handler for app version
+  ipcMain.handle('get-app-version', () => app.getVersion())
+
   createWindow()
 
   // Start auto-update check on app start (only in production builds)

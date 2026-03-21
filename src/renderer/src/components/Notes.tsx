@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { Note, Tag } from './types'
 import { useNotes } from './useNotes'
@@ -14,6 +14,11 @@ export default function Notes() {
   const [filterTag, setFilterTag]     = useState<Tag | null>(null)
   const [composerOpen, setComposerOpen] = useState(false)
   const [activeId, setActiveId]       = useState<string | null>(null)
+  const [version, setVersion]         = useState('')
+
+  useEffect(() => {
+    window.api.getVersion().then(setVersion)
+  }, [])
 
   /* ── Derived filtered list ── */
   const filtered = notes.filter((n) => {
@@ -72,10 +77,6 @@ export default function Notes() {
         }}
       />
 
-      <div style={{ margin: '0.35rem 0', textAlign: 'center', fontSize: '0.78rem', letterSpacing: '0.06em', color: '#814a17', background: '#fff7e4', border: '1px solid #ffc107', padding: '0.4rem' }}>
-        New in v1.1.0: built-in auto-update check and installer flow.
-      </div>
-
       <Masthead notes={notes} />
 
       <div className="rule-triple">
@@ -106,7 +107,7 @@ export default function Notes() {
       </div>
 
       <footer className="folio-footer">
-        <span>FOLIO</span>
+        <span>FOLIO v{version}</span>
         <span>·</span>
         <span>YOUR PRIVATE PRESS</span>
         <span>·</span>
