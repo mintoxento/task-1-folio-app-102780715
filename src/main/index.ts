@@ -60,6 +60,7 @@ function createWindow(): BrowserWindow {
     width: 900,
     height: 670,
     show: false,
+    title: 'Folio',
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {

@@ -1,5 +1,5 @@
-appId: com.electron.app
-productName: folio
+appId: com.folio
+productName: Folio
 directories:
   buildResources: build
 files:
