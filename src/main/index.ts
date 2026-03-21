@@ -4,6 +4,9 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { autoUpdater } from 'electron-updater'
 import icon from '../../resources/icon.png?asset'
 
+// Set app name
+app.setName('Folio')
+
 function registerAutoUpdater(mainWindow: BrowserWindow): void {
   autoUpdater.autoDownload = false
 
@@ -58,7 +61,7 @@ function createWindow(): BrowserWindow {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 900,
-    height: 670,
+    height: 1000,
     show: false,
     title: 'Folio',
     autoHideMenuBar: true,
